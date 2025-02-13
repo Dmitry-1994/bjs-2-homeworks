@@ -5,9 +5,9 @@ function getArrayParams(...arr) {
 	let max = Math.max.apply(null, arr);
 	let sumArr = 0;
 
-  for (let parametr of arr) {
-    sumArr += parametr;
-  }
+	for (let parametr of arr) {
+		sumArr += parametr;
+	}
 
 	let avg = parseFloat((sumArr / arr.length).toFixed(2));
 
@@ -19,68 +19,68 @@ function getArrayParams(...arr) {
 }
 
 function summElementsWorker(...arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
+	if (arr.length === 0) {
+		return 0;
+	}
 
-  let sumArr = 0;
+	let sumArr = 0;
 	for (let parametr of arr) {
 		sumArr += parametr;
 	}
 
-  return sumArr;
+	return sumArr;
 
 }
 
 function differenceMaxMinWorker(...arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
-    
-    let min = Math.min.apply(null, arr);
-	  let max = Math.max.apply(null, arr);
+	if (arr.length === 0) {
+		return 0;
+	}
 
-  return (max - min);
+	let min = Math.min.apply(null, arr);
+	let max = Math.max.apply(null, arr);
+
+	return (max - min);
 
 }
 
 function differenceEvenOddWorker(...arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
+	if (arr.length === 0) {
+		return 0;
+	}
 
 
-  let sumEvenElement = 0;
-  let sumOddElement = 0;
+	let sumEvenElement = 0;
+	let sumOddElement = 0;
 
-  for (let parametr of arr) {
-    if ((parametr % 2) === 0) {
-      sumEvenElement += parametr;
-    } else {
-      sumOddElement += parametr;
-    }
-  }
+	for (let parametr of arr) {
+		if ((parametr % 2) === 0) {
+			sumEvenElement += parametr;
+		} else {
+			sumOddElement += parametr;
+		}
+	}
 
-  return (sumEvenElement - sumOddElement);
+	return (sumEvenElement - sumOddElement);
 
 }
 
 function averageEvenElementsWorker(...arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
+	if (arr.length === 0) {
+		return 0;
+	}
 
-  let sumEvenElement = 0;
-  let countEvenElement = 0;
+	let sumEvenElement = 0;
+	let countEvenElement = 0;
 
-  for (let parametr of arr) {
-    if ((parametr % 2) === 0) {
-      sumEvenElement += parametr;
-      countEvenElement ++
-    }
-  }
+	for (let parametr of arr) {
+		if ((parametr % 2) === 0) {
+			sumEvenElement += parametr;
+			countEvenElement++
+		}
+	}
 
-  return (sumEvenElement / countEvenElement)
+	return (sumEvenElement / countEvenElement)
 
 }
 
