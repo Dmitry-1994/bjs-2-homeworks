@@ -89,8 +89,7 @@ function makeWork(arrOfArr, func) {
 	let maxWorkerResult = 0;
 
 	for (let arr of arrOfArr) {
-    //console.log(arr);
-    const tmp = func(...arr);
+		const tmp = func(...arr);
 		if (tmp >= maxWorkerResult) {
 			maxWorkerResult = tmp;
 		}
