@@ -9,5 +9,15 @@ function compareArrays(arr1, arr2) {
 }
 
 function getUsersNamesInAgeRange(users, gender) {
-  
-}
+    const filterGender = users.filter(user => user.gender === gender);
+    const mapAge = filterGender.map(user => user.age);
+    return mapAge.reduce((acc, item, index) => {
+        acc += item;
+        if ((index === mapAge.length - 1) && (mapAge.length !== 0)) {
+            return acc / mapAge.length;
+        }
+        return acc;
+            
+        }, 0);
+      
+      }
