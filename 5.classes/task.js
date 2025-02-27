@@ -121,7 +121,7 @@ class Student {
 		const grades = this.marks[subject];
 		const sumOfGrades = grades.reduce((acc, grade) => acc += grade, 0);
 		return (sumOfGrades / grades.length);
-		
+
 
 	}
 
@@ -131,7 +131,7 @@ class Student {
 			return 0;
 		}
 		const sumGradesAll = subjects.reduce((acc, subject) => {
-			let sumGrades = getAverageBySubject(subject);
+			let sumGrades = this.getAverageBySubject(subject);
 			acc += sumGrades;
 			return acc;
 		}, 0)
