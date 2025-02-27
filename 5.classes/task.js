@@ -78,18 +78,8 @@ class Library {
 
 	findBookBy(type, value) {
 		if (this.books.length !== 0) {
-
-			/*
 			const selectedBook = this.books.filter(book => book[type] === value);
-			return selectedBook.length !== 0 ? selectedBook : null;
-			*/
-
-
-			for (let book of this.books) {
-				if (book[type] === value) {
-					return book;
-				}
-			}
+			return selectedBook.length !== 0 ? selectedBook[0] : null;
 		}
 		return null;
 	}
