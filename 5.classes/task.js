@@ -78,8 +78,8 @@ class Library {
 
 	findBookBy(type, value) {
 		if (this.books.length !== 0) {
-			const selectedBook = this.books.filter(book => book[type] === value);
-			return selectedBook.length !== 0 ? selectedBook[0] : null;
+			const selectedBook = this.books.find(book => book[type] === value);
+			return selectedBook !== undefined ? selectedBook : null;
 		}
 		return null;
 	}
@@ -92,5 +92,49 @@ class Library {
 		} else {
 			return null;
 		}
+	}
+}
+
+class Student {
+	constructor(name) {
+		this.name = name;
+		this.marks = {};
+	}
+
+
+
+	addMark(grade, subject) {
+		if (grade >= 2 && grade <= 5) {
+			if (!this.marks.hasOwnProperty(subject)) {
+				this.marks[subject] = [grade];
+			} else {
+				this.marks[subject].push(grade);
+			}
+		}
+	}
+
+	getAverageBySubject(subject) {
+		if (!this.marks.hasOwnProperty(subject)) {
+			return 0;
+		}
+
+		const grades = this.marks[subject];
+		const sumOfGrades = grades.reduce((acc, grade) => acc += grade, 0);
+		return (sumOfGrades / grades.length);
+		
+
+	}
+
+	getAverage() {
+		const subjects = Object.keys(this.marks);
+		if (subjects.length === 0) {
+			return 0;
+		}
+		const sumGradesAll = subjects.reduce((acc, subject) => {
+			let sumGrades = getAverageBySubject(subject);
+			acc += sumGrades;
+			return acc;
+		}, 0)
+		return (sumGradesAll / subjects.length);
 	}
 }
