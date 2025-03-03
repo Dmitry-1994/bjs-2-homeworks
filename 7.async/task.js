@@ -32,4 +32,35 @@ class AlarmClock {
 		const minutes = date.getMinutes().toString().padStart(2, "0");
 		return `${hours}:${minutes}`;
 	}
+
+	start() {
+		if (this.intervalId !== null) {
+			return;
+		}
+
+		this.intervalId = setInterval(() => {
+			for (const alarm of this.alarmCollection) {
+				if (alarm.time === this.getCurrentFormattedTime() && alarm.canCall === true) {
+					alarm.canCall = false;
+					alarm.callback();
+				}
+			}
+		}, 1000);
+	}
+
+	stop() {
+		clearInterval(this.intervalId);
+		this.intervalId = null;
+	}
+
+	resetAllCalls() {
+		for (const alarm of this.alarmCollection) {
+			alarm.canCall = true;
+		}
+	}
+
+	clearAlarms() {
+		this.stop();
+		this.alarmCollection = [];
+	}
 }
