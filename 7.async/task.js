@@ -9,8 +9,6 @@ class AlarmClock {
             throw new Error("Отсутствуют обязательные аргументы")
         }
 
-        
-
         if(this.alarmCollection.find(alarm => alarm.time === startAlarm)) {
             console.warn("Уже присутствует звонок на это же время");
         }
@@ -20,5 +18,9 @@ class AlarmClock {
             time : startAlarm,
             canCall : true
         });
+    }
+
+    removeClock(time) {
+        this.alarmCollection = this.alarmCollection.filter(alarm => alarm.time !== time);
     }
 }
