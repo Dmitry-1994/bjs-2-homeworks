@@ -26,5 +26,13 @@ function cachingDecoratorNew(func) {
 }
 
 function debounceDecoratorNew(func, delay) {
-  
+	let timeoutId = null;
+	return function(...args) {
+		if(timeoutId) {
+			clearTimeout(timeoutId);
+		}
+		timeoutId = setTimeout(() => {
+			timeoutId = null,
+			console.log(func(...args))}, delay);
+	} 
 }
