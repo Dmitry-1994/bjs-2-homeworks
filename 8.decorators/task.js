@@ -27,12 +27,22 @@ function cachingDecoratorNew(func) {
 
 function debounceDecoratorNew(func, delay) {
 	let timeoutId = null;
-	return function(...args) {
+	wrapper.count = 0;
+	wrapper.allCount = 0;
+	function wrapper(...args) {
+		wrapper.allCount++;
 		if(timeoutId) {
 			clearTimeout(timeoutId);
+		} else {
+			func.call(this, ...args);
+			wrapper.count++;
 		}
 		timeoutId = setTimeout(() => {
-			timeoutId = null,
-			console.log(func(...args))}, delay);
-	} 
+			func.call(this, ...args);
+			wrapper.count++;
+		}, delay);
+		if(timeoutId !== null) {
+		}
+	}
+	return wrapper;
 }
